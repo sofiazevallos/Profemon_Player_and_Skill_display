@@ -3,7 +3,10 @@
 using namespace std;
 int main()
 {
-    // maryash skills
+    // Create Skill objects representing various skills
+    // Each skill has a name, description, specialty, and total uses
+
+    //maryash skills
     Skill oop("OOP", "a programming paradigm based on the concept of objects, which can contain data and code", SOFTWARE, 30);
     Skill dynamic_array("Vector", "a c++ dynamic array library", SOFTWARE, 30);
     Skill pointer("Pointer", "a pointer stores a memory address", SOFTWARE, 10);
@@ -40,23 +43,33 @@ int main()
     Skill neuralnetwork("Neural Network", "a series of perceptrons that have an input, output, and hidden layer", ML, 30);
     Skill autoencoder("Autoencoder", "a ML technique that involves the use of a generator which generates fake information and a discriminator which can discern whether the information is fake or not", ML, 30);
 
+    // Create Profemon objects
+    // Each Profemon has a name, maximum health, and specialty
     Profemon maryash("Maryash", 13500, SOFTWARE);
-    cout << maryash.learnSkill(0, oop) << endl;                 // prints 1
-    /*
+    // Learn a skill for Maryash at slot 0
+    cout << maryash.learnSkill(0, oop) << endl; 
+    // Expected output: 1 (true) as Maryash can learn the skill
+
+    // Print Maryash's details including learned skills
+    maryash.printProfemon(true);
+    /*  Expected output:
         Maryash [SOFTWARE] | lvl 0 | exp 0/50 | hp 13500
             OOP [30] : a programming paradigm based on the concept of objects, which can contain data and code
     */
-    maryash.printProfemon(true);
-
+    // Create more Profemon objects and perform actions
     Profemon ligorio("Ligorio", 23500, SOFTWARE);
-    cout << ligorio.learnSkill(2, perceptron) << endl;          // prints 0
+    cout << ligorio.learnSkill(2, perceptron) << endl;  
+    // Expected output: 0 (false) as Ligorio's specialty is SOFTWARE, and perceptron's specialty is ML
 
     Profemon shostak("Shostak", 33500, SOFTWARE);
     shostak.levelUp(200);
-    cout << shostak.getLevel() << endl;                         // prints 3
+    cout << shostak.getLevel() << endl; 
+    // Expected output: 3, as Shostak leveled up three times
 
+    // Print Shostak's details including learned skills
     shostak.printProfemon(true);
-    
+
+    //Same process goes for all other Profemon objects
     Profemon shankar("Shankar", 26000, HARDWARE);
     Profemon schweitzer("Schweitzer", 15000, HARDWARE);
     Profemon zamfirescu("Zamfirescu", 16000, HARDWARE);
